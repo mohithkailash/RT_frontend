@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { Children } from 'react'
 
 const Screen = ({children}) => {
   return (
-    <View>
+    <ScrollView showsVerticalScrollIndicator = {false}>
       {children}
-    </View>
+    </ScrollView>
   )
 }
 

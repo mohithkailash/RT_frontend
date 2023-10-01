@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Button, Image } from 'react-native'
 import React from 'react'
 
-const Card = () => {
+const Card = ({post}) => {
+  if (!post) {
+    return null;
+  }
+  const {image, title, content } = post;
   return (
     <View style={styles.card}>
-        <Text style={styles.title} textAlign="left">Head</Text>
-        <Text style={styles.context} textAlign="left">Context</Text>
+        <Image source={{ uri: image }} style={styles.cardImage} />
+        <Text style={styles.title} textAlign="left">{title}</Text>
+        <Text style={styles.context} numberOfLines={2} textAlign="left">{content}</Text>
         <View style={styles.buttonContainer}>
           <Button
             style={styles.likeButton}
@@ -26,9 +31,15 @@ const Card = () => {
   )
 }
 
-export default Card
+export default Card;
 
 const styles = StyleSheet.create({
+    cardImage:{
+      width: '100%',
+      height: 200,
+      borderTopLeftRadius: 8,
+      borderTopRightRadius: 8,
+    },
     card: {
         margin: 10,
         backgroundColor: '#fff',
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
       },
       dislikeButton: {
         backgroundColor: '#d33',
-        color: '#fff',
+        color: 'red',
         width: 100,
         height: 40,
         borderRadius: 20,

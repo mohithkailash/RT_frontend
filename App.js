@@ -1,16 +1,16 @@
+import * as React from 'react';
+import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import Searchbar from './app/components/Searchbar';
-import Screen from './app/components/Screen';
-import Card from './app/components/Card';
+import Tabs from './app/components/Tabs';
 
 export default function App() {
   return (
-    <Screen>
-      <Searchbar/>
-      <Card/>
-    </Screen>
-    
-    );
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
+  );
 }
 
 
